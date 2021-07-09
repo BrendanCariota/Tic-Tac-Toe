@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameContainer {
+  display: grid;
+  width: 800px;
+  height: 800px;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.spot {
+  background-color: lightblue;
+  width: 250px;
+  height: 250px;
+}
+
+.spot:hover {
+  cursor: pointer;
+  background-color: rgb(133, 171, 184);
+}
