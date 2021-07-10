@@ -8,8 +8,40 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
+    <div class="controls">
+        <button class="startBtn btn">Start</button>
+        <button class="resetBtn btn">Reset</button>
+    </div>
     <div class="gameContainer">
         
+    </div>
+    <div class="startModal inactive">
+        <h1 class="modalHeading">Start Game</h1>
+        <form class="playerInputContainer">
+            <div class="playerInputOne">
+                <h3>Player One</h3>
+                <div class="label">
+                    <label for="name">Name</label>
+                    <input class="playerOneName" type="text" name="name">
+                </div>
+                <div class="label">
+                   <label for="marker">X's</label>
+                    <input class="playerOneMarker" type="checkbox" checked value='x'> 
+                </div>
+            </div>
+            <div class="playerInputTwo">
+                <h3>Player Two</h3>
+                <div class="label">
+                    <label for="name">Name</label>
+                    <input class="playerTwoName" type="text" name="name">
+                </div>
+                <div class="label">
+                   <label for="marker">O's</label>
+                    <input class="playerTwoMarker" type="checkbox" checked value='o'> 
+                </div>
+            </div>
+        </form>
+        <button type="submit" class="startBtn btn gameBtn">Start</button>
     </div>
 
     <script src="app.js"></script>

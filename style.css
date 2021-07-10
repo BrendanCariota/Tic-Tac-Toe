@@ -6,6 +6,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -14,6 +15,7 @@ body {
 
 .gameContainer {
   display: grid;
+  margin: 25px 0;
   width: 800px;
   height: 800px;
   grid-template-rows: 1fr 1fr 1fr;
@@ -29,4 +31,53 @@ body {
 .spot:hover {
   cursor: pointer;
   background-color: rgb(133, 171, 184);
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  margin: 0 20px;
+  border: 1px solid black;
+  font-size: 1.25rem;
+}
+.startBtn {
+  background-color: rgb(131, 247, 131);
+}
+.resetBtn {
+  background-color: rgb(247, 145, 131);
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.startModal {
+  position: absolute;
+  top: auto;
+  left: auto;
+  background-color: rgb(171, 170, 230);
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+.playerInputOne {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 25px;
+}
+.modalHeading {
+  margin: 20px 0;
+}
+.playerInputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.inactive {
+  display: none;
 }

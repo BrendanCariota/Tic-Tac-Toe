@@ -1,5 +1,17 @@
 
 const gameContainer = document.querySelector('.gameContainer')
+const startBtn = document.querySelector('.startBtn')
+const resetBtn = document.querySelector('.resetBtn')
+const gameBtn = document.querySelector('.gameBtn')
+const startForm = document.querySelector('.playerInputContainer')
+const startModal = document.querySelector('.startModal')
+const playerOneName = document.querySelector('.playerOneName')
+const playerOneMarker = document.querySelector('.playerOneMarker')
+const playerTwoName = document.querySelector('.playerTwoName')
+const playerTwoMarker = document.querySelector('.playerTwoMarker')
+
+// Global Variables
+let gameStart = false
 
 // Gameboard
 const gameBoard = (() => {
@@ -14,7 +26,7 @@ const gameBoard = (() => {
         playArea.map(spot => {
             const gameSpot = document.createElement('div')
             gameSpot.classList.add('spot')
-            gameSpot.addEventListener('click', () => jeff.placeMarker(gameSpot))
+            gameSpot.addEventListener('click', () => playerOne.placeMarker(gameSpot))
             gameContainer.appendChild(gameSpot)
         })
     }
@@ -22,21 +34,44 @@ const gameBoard = (() => {
     return {playArea, createPlayArea}
 })()
 
+
 // Player
 const player = (name, symbol) => {
     const sayName = () => console.log('My name is ' + name)
 
     const placeMarker = (spot) => {
-        console.log(spot)
-        console.log('placed ' + symbol + ' at ' + spot)
-        spot.innerText = symbol
+        if(gameStart == true) {
+            spot.innerText = symbol  
+             
+        } else {
+            alert('Must start game')
+        }
+        
     }
     
     return { sayName, placeMarker, symbol}
 }
 
+const startGame = (playerOneName, playerOneMarker, playerTwoName, playerTwoMarker) => {
+    const playerOne = player(playerOneName.value, playerOneMarker.value)
+    const playerTwo = player(playerTwoName.value, playerTwoMarker.value)
+
+    gameStart = true
+
+    startModal.classList.toggle('inactive')
+
+    return { playerOne, playerTwo}
+}
+
+// Event Listeners
+startBtn.addEventListener('click', () => {
+    startModal.classList.toggle('inactive')
+})
+gameBtn.addEventListener('click', () => startGame(playerOneName, playerOneMarker, playerTwoName, playerTwoMarker))
+
 // Create character
 const jeff = player('jeff', 'x')
+
 
 //--- RUN PROGRAM ---
 // Create game board
