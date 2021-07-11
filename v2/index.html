@@ -8,40 +8,21 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="controls">
-        <button class="startBtn btn">Start</button>
-        <button class="resetBtn btn">Reset</button>
-    </div>
-    <div class="gameContainer">
-        
-    </div>
-    <div class="startModal inactive">
-        <h1 class="modalHeading">Start Game</h1>
-        <form class="playerInputContainer">
-            <div class="playerInputOne">
-                <h3>Player One</h3>
-                <div class="label">
-                    <label for="name">Name</label>
-                    <input class="playerOneName" type="text" name="name">
-                </div>
-                <div class="label">
-                   <label for="marker">X's</label>
-                    <input class="playerOneMarker" type="checkbox" checked value='x'> 
-                </div>
-            </div>
-            <div class="playerInputTwo">
-                <h3>Player Two</h3>
-                <div class="label">
-                    <label for="name">Name</label>
-                    <input class="playerTwoName" type="text" name="name">
-                </div>
-                <div class="label">
-                   <label for="marker">O's</label>
-                    <input class="playerTwoMarker" type="checkbox" checked value='o'> 
-                </div>
-            </div>
-        </form>
-        <button type="submit" class="startBtn btn gameBtn">Start</button>
+    
+    <div class="container">
+        <h1 id="playText">Let's Play</h1>
+        <button id="restartBtn">Restart</button>
+        <div id="gameboard">
+            <div class="box" id="0"></div>
+            <div class="box" id="1"></div>
+            <div class="box" id="2"></div>
+            <div class="box" id="3"></div>
+            <div class="box" id="4"></div>
+            <div class="box" id="5"></div>
+            <div class="box" id="6"></div>
+            <div class="box" id="7"></div>
+            <div class="box" id="8"></div>
+        </div>
     </div>
 
     <script src="app.js"></script>
