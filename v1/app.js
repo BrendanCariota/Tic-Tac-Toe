@@ -12,6 +12,7 @@ const playerTwoMarker = document.querySelector('.playerTwoMarker')
 
 // Global Variables
 let gameStart = false
+var playerTurn = 1
 
 // Gameboard
 const gameBoard = (() => {
@@ -22,13 +23,32 @@ const gameBoard = (() => {
             7, 8, 9
         ]
     
-    const createPlayArea = (playArea) => {
+    const createPlayArea = (playArea, playerOne, playerTwo) => {
         playArea.map(spot => {
             const gameSpot = document.createElement('div')
             gameSpot.classList.add('spot')
-            gameSpot.addEventListener('click', () => playerOne.placeMarker(gameSpot))
+            gameSpot.addEventListener('click', () => {
+                checkPlayerTurn(playerTurn, playerOne, gameSpot)
+                
+            })
             gameContainer.appendChild(gameSpot)
         })
+    }
+
+    const checkPlayerTurn = (playerTurn, player, gameSpot) => {
+            
+        const updatePlayerTurn = (newPlayerTurn) => {
+            playerTurn = newPlayerTurn
+            return playerTurn
+        }
+
+        if(playerTurn == 1) {
+            console.log('Player one')
+            updatePlayerTurn(2)
+        } else {
+            playerTurn = 1
+            console.log('Player two')
+        }
     }
 
     return {playArea, createPlayArea}
@@ -58,6 +78,11 @@ const startGame = (playerOneName, playerOneMarker, playerTwoName, playerTwoMarke
 
     gameStart = true
 
+    // Create game board
+    gameBoard.createPlayArea(gameBoard.playArea, playerOne, playerTwo)
+
+    console.log(playerOne.symbol, playerTwo.symbol)
+
     startModal.classList.toggle('inactive')
 
     return { playerOne, playerTwo}
@@ -74,5 +99,3 @@ const jeff = player('jeff', 'x')
 
 
 //--- RUN PROGRAM ---
-// Create game board
-gameBoard.createPlayArea(gameBoard.playArea)

@@ -81,3 +81,9 @@ body {
 .inactive {
   display: none;
 }
+
+.test {
+  background-color: rgb(83, 83, 110);
+  color: white;
+  width: 300px;
+}
