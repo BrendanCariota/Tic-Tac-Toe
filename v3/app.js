@@ -52,6 +52,11 @@ const gameController =  (() => {
             gameBoard.placeMarker(box, playerO.getMarker()) 
         }
         round ++
+        if (round > 9 && gameOver === false) {
+
+            gameOver = true
+            displayController.playText.innerText = `It's a Tie!`
+        }
     }
 
     const getIsOver = () => {
@@ -138,6 +143,6 @@ const displayController =  (() => {
         playText.innerText = `Let's Play!`
     }
 
-    return { boxes, setPlayText, resetPlayText }
+    return { boxes, setPlayText, resetPlayText, playText }
 
 })()
